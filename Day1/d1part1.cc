@@ -51,7 +51,7 @@ int main() {
     input.open("input.txt");
     if (!input) {
         cerr << "Could not open file!" << endl;
-        return 0;
+        return 1;
     }
     // Insert all numbers in that file to a hash set
     unordered_multiset<int> nums;
