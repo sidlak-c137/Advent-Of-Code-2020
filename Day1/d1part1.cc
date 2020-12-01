@@ -59,18 +59,21 @@ int main() {
     while(input >> x) {
         nums.insert(x);
     }
-    // Find product of two numbers summing to 2020
+    // Print product of two numbers summing to 2020
     sumTwo(nums);
     return 0;
 }
 
 void sumTwo(const unordered_multiset<int> &nums) {
-    unordered_multiset<int>::iterator it_find, it_end;
+    unordered_multiset<int>::iterator it, it_find, it_end;
     it_end = nums.cend();
-    for (auto it = nums.cbegin(); it != it_end; it++) {
+    // Iterate through set
+    for (it = nums.cbegin(); it != it_end; it++) {
         int num = *it;
+        // Find if 2020 - num is in the set
         it_find = nums.find(2020 - num);
         if (it_find != it_end && it != it_find) {
+            // Print product of num and (2020 - num)
             cout << "Product of Numbers: " << num * (2020 - num) << endl;
             return;
         }

@@ -66,7 +66,7 @@ int main() {
     while(input >> x) {
         nums.insert(x);
     }
-    // Find product of two numbers summing to 2020
+    // Print product of three numbers summing to 2020
     sumThree(nums);
     return 0;
 }
@@ -74,11 +74,15 @@ int main() {
 void sumThree(const unordered_multiset<int> &nums) {
     unordered_multiset<int>::iterator it, it1, it_find, it_end;
     it_end = nums.cend();
+    // Iterate through the set: x
     for (it = nums.cbegin(); it != it_end; it++) {
+        // Iterate for the second value: y
         for (it1 = it; it1 != it_end; it1++) {
             if (it != it1) {
+                // Search set for third value: 2020 - x - y
                 it_find = nums.find(2020 - *it - *it1);
                 if (it_find != it && it_find != it1 && it_find != it_end) {
+                    // Print product of x, y, and (2020 - x - y)
                     cout << "Product of Numbers: " << *it * *it1 * (2020 - *it - *it1) << endl;
                     return;
                 }
